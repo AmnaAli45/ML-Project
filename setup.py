@@ -35,4 +35,16 @@ setup(
 
 # ye sb krne k baad terminal prr command chlani hai 
 #pip install -r requirements.txt
-# ==ye sb packages ko install kr de gy aur aik nya folder mlproject.egg-info ka bnn jaye ga
+# ye sb packages ko install kr de gy aur aik nya folder mlproject.egg-info ka bnn jaye ga
+
+#ab saara ka saara code src ke folder mein likhein gy 
+#aik nya folder bnanye gy components k naam se jis mein hrr module ki alg alg file ho gy is mein bhi __init__.py ki file bne gy 
+#ta k hrr module ko as a package import kya ja sky
+
+# aik aur folder bne ga pipelines k naam se us mein ... prediction aur training ki piplines ki file bnani hai ... ur aik file 
+#__init__.py ki bne gy ta k is ko as a package import kya ja sky
+
+#Create following files in src folder:
+#exception.py --> for the purpose of exception handling
+#logger.py --> to create logging 
+#utils.py --> all the code common to whole project must be in this file
