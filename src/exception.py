@@ -1,6 +1,7 @@
 import sys # built-in standard library module that provides access to variables, functions, and objects that interact 
 #directly with the Python interpreter.
 
+
 def errorMessageDetail(error,error_details:sys):
     _,_,exc_tb=error_details.exc_info()  # exc_info() --> it will return 3 values (exc_type, exc_value, traceback) but we 
     #are interested only in third one 

@@ -43,3 +43,6 @@ logging.basicConfig(
 # logging.info() file mein ek message likhne ke liye use hota hai.
 # Ye message file mein date/time ke saath store ho jata hai.
 # Is tarah, aap future mein dekh sakte ho ki kab aur kaun si error aayi thi.
+
+#jb bhi kisi file mein log crerate krne hain to logging ko import krna hai
+# from src.logger import logging
