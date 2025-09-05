@@ -7,12 +7,15 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass # basically used to create class variables in short
 
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
 #any kind of input that data ingestion requires comes through the following class
 @dataclass #while working in a class we need to use __init__ function to create class variab;les but this decorator is used to create class variables directly.
 class DataIngestionConfig:
-    train_data = os.path().join("artifacts","train.csv")# it will create a folder named artifacts and all the outputs of data ingestion are stored in this folder.
-    test_data = os.path().join("artifacts","test.csv")
-    raw_data = os.path().join("artifacts","data.csv")
+    train_data = os.path.join("artifacts","train.csv")# it will create a folder named artifacts and all the outputs of data ingestion are stored in this folder.
+    test_data = os.path.join("artifacts","test.csv")
+    raw_data = os.path.join("artifacts","data.csv")
 # above are the inputs that we are going to give our data ingestion component so that it will know where to store test,train and raw data.
 
 #if you are only definig the variables in class then @dataclass decorator is used but your class have various functions then it is best to use __init__ function.
@@ -25,7 +28,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered data ingestion method or component.")
         try:
-            df = pd.read_csv("notebook\data\Student Performance new.csv")
+            df = pd.read_csv(r"notebook/data/Student Performance new.csv")
             logging.info('Read dataset as a dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data),exist_ok=True) # ye train data k naam ka folder bnaye ga
@@ -50,8 +53,11 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e,sys) #automatically exception will be raised
 
-if __name__=="__main__":
-    obj=DataIngestion()
-    obj.initiate_data_ingestion()
+if __name__ == "__main__": 
+    obj = DataIngestion()  
+    train_data,test_data = obj.initiate_data_ingestion()
+
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data,test_data)
             
 
